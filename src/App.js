@@ -1,13 +1,27 @@
 import './App.css';
 
-import TabataSelector from './screens/Tabata';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+import SettingTabata from './screens/SettingTabata';
 import Layout from './layout/Layout';
+
+import { Store } from './store/Store';
 
 function App() {
   return (
-    <Layout>
-      <TabataSelector />
-    </Layout>
+    <Store>
+      <Router>
+        <Switch>
+        <Route path='/' exact component={SettingTabata} />
+          <Route path='/settings' exact component={SettingTabata} />
+        </Switch>      
+      </Router>
+    </Store>
+    
     
   );
 }

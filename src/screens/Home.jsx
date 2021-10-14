@@ -2,32 +2,38 @@ import Layout from "../layout/Layout"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faCogs, faPlayCircle} from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom"
+import { useState } from "react"
 
 function Home(){
+
+    const [startCounter,setStartCounter] = useState(5)
+
     return(
         <Layout
             color="bg-gray-200"
-        >
+        >   
+            <div className="flex m-4 justify-evenly">
+                <h1 className=" text-2xl">Tabata App </h1>    
+                <Link 
+                    to="/settings"
+                >                                  
+                    <FontAwesomeIcon
+                        icon={faCogs}
+                        className=" text-2xl cursor-pointer ml-3 text-gray-500 text-center"
+                    />    
+                </Link> 
+            </div>
+               
+            
             <Link 
-                to="/settings"
-                className="flex justify-end m-4"
-            >
-                <FontAwesomeIcon
-                    icon={faCogs}
-                    className="cursor-pointer text-gray-500 text-center"
-                />    
-            </Link> 
-            <Link
-                to="/workout"
+                to="/timer"
                 className="mx-auto"
             >
                 <FontAwesomeIcon
                     icon={faPlayCircle}
-                    className="mx-auto mt-40 text-9xl text-green-500 text-center"
-                />    
-            </Link>          
-
-            <h1 className="text-center mt-3 text-xl">Démarrer le WorkOut</h1>
+                    className="mx-auto mt-36 text-9xl text-green-500 text-center cursor-pointer"
+                />  
+            </Link>         
         </Layout>        
     )
 }

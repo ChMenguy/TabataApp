@@ -26,7 +26,8 @@ function Home(){
             >
                 <FontAwesomeIcon
                     icon={faPlayCircle}
-                    className="mx-auto mt-36 text-9xl text-yellow-500 text-center cursor-pointer"
+                    className="mx-auto mt-36 text-yellow-500 text-center cursor-pointer"
+                    size="10x"
                 />  
             </Link>         
         </Layout>        

@@ -25,7 +25,7 @@ function Timer(){
             color="bg-gray-100"
         >   
             {count != 0 ?
-                <span className="text-center mt-56 text-yellow-500 font-bold text-6xl">{count}</span>        
+                <span className="text-center mt-56 text-yellow-500 font-bold text-9xl">{count}</span>        
             : 
                 <Redirect to="/workout" />
             }

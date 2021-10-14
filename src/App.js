@@ -7,7 +7,8 @@ import {
 } from "react-router-dom";
 
 import SettingTabata from './screens/SettingTabata';
-import Layout from './layout/Layout';
+import Home from './screens/Home';
+import Workout from './screens/Workout';
 
 import { Store } from './store/Store';
 
@@ -16,8 +17,9 @@ function App() {
     <Store>
       <Router>
         <Switch>
-        <Route path='/' exact component={SettingTabata} />
+          <Route path='/' exact component={Home} />
           <Route path='/settings' exact component={SettingTabata} />
+          <Route path='/workout' exact component={Workout} />
         </Switch>      
       </Router>
     </Store>

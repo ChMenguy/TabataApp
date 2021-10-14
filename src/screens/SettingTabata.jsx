@@ -9,6 +9,7 @@ import * as ACTIONS from "../store/actions/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faArrowCircleLeft} from "@fortawesome/free-solid-svg-icons"
 import Layout from "../layout/Layout";
+import { Link } from "react-router-dom";
 
 function TimerSelector(){
 
@@ -29,10 +30,14 @@ function TimerSelector(){
 
     return (
         <div className="mt-10">
-        <FontAwesomeIcon 
-            icon={faArrowCircleLeft}
-            className="ml-3 text-gray-600 cursor-pointer"
-        />
+        <Link
+            to="/"
+        >
+            <FontAwesomeIcon 
+                icon={faArrowCircleLeft}
+                className="ml-3 text-gray-600 cursor-pointer"
+            />
+        </Link>
         <h2 className="text-center mt-5 text-xl uppercase text-gray-600 font-semibold font-serif">Durée du Workout</h2>
             <form onSubmit={handleSubmit(onSubmit, onError)} className="mx-auto mt-3 flex flex-col">
                 <ChoiseButton
@@ -66,7 +71,9 @@ function TimerSelector(){
 
 function SettingTabata(){
     return(
-        <Layout>
+        <Layout
+            color="bg-gray-200"
+        >
             <TimerSelector />
         </Layout>
         

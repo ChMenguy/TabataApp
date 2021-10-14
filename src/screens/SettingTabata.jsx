@@ -35,10 +35,10 @@ function TimerSelector(){
         >
             <FontAwesomeIcon 
                 icon={faArrowCircleLeft}
-                className="ml-3 text-gray-600 cursor-pointer"
+                className="ml-3 text-white cursor-pointer"
             />
         </Link>
-        <h2 className="text-center mt-5 text-xl uppercase text-gray-600 font-semibold font-serif">Durée du Workout</h2>
+        <h2 className="text-center mt-5 text-xl uppercase text-yellow-500 font-semibold font-serif">Durée du Workout</h2>
             <form onSubmit={handleSubmit(onSubmit, onError)} className="mx-auto mt-3 flex flex-col">
                 <ChoiseButton
                     value = '8'
@@ -61,7 +61,7 @@ function TimerSelector(){
                     nameregister = "resttime"
                     type="time"
                 />
-                <button className="py-2 mt-10 justify-end bg-blue-600 mx-4 text-white text-xl rounded-3xl" type="submit">Valider</button>
+                <button className="py-2 mt-10 justify-end bg-yellow-500 mx-4 text-white text-xl rounded-3xl" type="submit">Valider</button>
             </form>
         </div>
     )

@@ -14,16 +14,14 @@ function Workout(){
 
     const { app, dispatch } = React.useContext(Context);
   
-    let [rounds,setRounds]= useState(app.workout.rounds)
-    let [countWork,setCountWork]= useState(app.workout.worktime)
-    let [countRest,setCountRest]= useState(app.workout.resttime)
+    const [rounds,setRounds]= useState(app.workout.rounds)
+    const [roundsDone,setRoundsDone] = useState(1)
+    const [countWork,setCountWork]= useState(app.workout.worktime)
+    const [countRest,setCountRest]= useState(app.workout.resttime)
+    const [value,setValue] = useState(0)
 
     const [work,setWork] = useState(true)
     const [finish, setFinish] = useState(false)
-
-    useEffect(()=>{
-        
-    },[])
 
     useInterval(
         () => {
@@ -33,15 +31,22 @@ function Workout(){
                 if(work){       
                     if(countWork==1){
                         setWork(false) 
+                        setCountWork(app.workout.worktime)
+                        setValue(0)
                     } else {
-                        setCountWork(countWork-1)    
+                        setCountWork(countWork-1)  
+                        setValue(value + 100/app.workout.worktime)  
                     } 
                 } else {
                     if(countRest==1){
                         setWork(true) 
+                        setCountRest(app.workout.resttime)
                         setRounds(rounds-1)
+                        setRoundsDone(roundsDone +1)
+                        setValue(0)
                     } else{
                         setCountRest(countRest-1)
+                        setValue(value + 100/app.workout.resttime)  
                        
                     }
                 }      
@@ -65,10 +70,11 @@ function Workout(){
         :
         <Layout>
             <CircleProgression 
-                value = {work ? countWork : countRest}
+                value = {value}
                 time={work ? countWork : countRest}
                 mode = { work ? 'WORK' : 'REST' }
             />
+            <p className="text-center text-yellow-500 font-bold mt-10 text-2xl">{roundsDone}/{app.workout.rounds}</p>
         </Layout>
     )
 }

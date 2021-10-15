@@ -2,20 +2,21 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import ChoiseButton from "../composants/ChoiseButton";
+import Layout from "../layout/Layout";
 
 import { Context } from "../store/Store";
 import * as ACTIONS from "../store/actions/actions";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faArrowCircleLeft} from "@fortawesome/free-solid-svg-icons"
-import Layout from "../layout/Layout";
+
+
 import { Link } from "react-router-dom";
 
 function TimerSelector(){
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, e) => {
-        console.log(data)
         dispatch(ACTIONS.setWorkout({
             rounds : data.rounds,
             worktime : data.worktime,
@@ -25,9 +26,6 @@ function TimerSelector(){
     const onError = (errors, e) => console.log(errors, e);
 
     const { app, dispatch } = React.useContext(Context);
-    console.log(app)
-
-
     return (
         <div className="mt-10">
         <Link
@@ -35,10 +33,10 @@ function TimerSelector(){
         >
             <FontAwesomeIcon 
                 icon={faArrowCircleLeft}
-                className="ml-3 text-white cursor-pointer"
+                className="ml-3  text-3xl text-white cursor-pointer"
             />
         </Link>
-        <h2 className="text-center mt-5 text-xl uppercase text-yellow-500 font-semibold font-serif">Durée du Workout</h2>
+        <h2 className="text-center mt-5 text-xl uppercase text-yellow-500 font-semibold font-serif">Paramétrage Workout</h2>
             <form onSubmit={handleSubmit(onSubmit, onError)} className="mx-auto mt-3 flex flex-col">
                 <ChoiseButton
                     value = '8'
@@ -48,18 +46,18 @@ function TimerSelector(){
                     type="number"
                 />
                 <ChoiseButton
-                    value = '00:40'
-                    title = 'Temps de travail'
+                    value = '40'
+                    title = 'Temps de travail (en secondes)'
                     register = {register}
                     nameregister = "worktime"
-                    type="time"
+                    type="number"
                 />
                 <ChoiseButton
-                    value = '00:20'
-                    title = 'Temps de repos'
+                    value = '20'
+                    title = 'Temps de repos (en secondes)'
                     register = {register}
                     nameregister = "resttime"
-                    type="time"
+                    type="number"
                 />
                 <button className="py-2 mt-10 justify-end bg-yellow-500 mx-4 text-white text-xl rounded-3xl" type="submit">Valider</button>
             </form>

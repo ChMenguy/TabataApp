@@ -15,7 +15,7 @@ function Home(){
     return(
         <Layout>   
             <div className="flex m-4 justify-evenly">
-                <h1 className="text-white text-center text-5xl">Tabata App </h1>    
+                <h1 className="text-white text-center text-5xl mt-5">Tabata App </h1>    
             </div>           
             <Link 
                 to="/timer"

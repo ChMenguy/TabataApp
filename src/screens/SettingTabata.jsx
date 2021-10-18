@@ -21,7 +21,7 @@ function TimerSelector(){
             rounds : data.rounds,
             worktime : data.worktime,
             resttime : data.resttime,
-        }))
+        }));
     };
     const onError = (errors, e) => console.log(errors, e);
 
@@ -39,21 +39,21 @@ function TimerSelector(){
         <h2 className="text-center mt-5 text-xl uppercase text-yellow-500 font-semibold font-serif">Paramétrage Workout</h2>
             <form onSubmit={handleSubmit(onSubmit, onError)} className="mx-auto mt-3 flex flex-col">
                 <ChoiseButton
-                    value = '8'
+                    value = {app.workout.rounds}
                     title = 'Nombres de Tours'
                     register = {register}
                     nameregister = "rounds"
                     type="number"
                 />
                 <ChoiseButton
-                    value = '40'
+                    value = {app.workout.worktime}
                     title = 'Temps de travail (en secondes)'
                     register = {register}
                     nameregister = "worktime"
                     type="number"
                 />
                 <ChoiseButton
-                    value = '20'
+                    value = {app.workout.resttime}
                     title = 'Temps de repos (en secondes)'
                     register = {register}
                     nameregister = "resttime"
